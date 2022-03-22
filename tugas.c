@@ -18,14 +18,14 @@ void isiMatriks(int size, float* matriks){
     // Deskripsi: mengisi matriks dengan nilai fungsi rand
 }
 
-void kaliMatriks1(int size, float* matriks1, float* matriks2, float* matriks3){
+void kaliBiasa(int mode, int size, float* matriks1, float* matriks2, float* matriks3){
     // Deskripsi: perkalian matrik1 dengan matriks2 menjadi matriks3
     //            dengan algoritma ...
 }
 
 // Program Utama
 int main{
-    int size, i, j;
+    int size, mode, i, j;
     
     // Memilih besar matriks
     printf("Masukan ukuran matriks persegi (10, 100, 1000, atau 10000): \n");
@@ -33,16 +33,20 @@ int main{
     
     // Memilih algoritma
     
+    // Memilih mode akses
+    printf("Masukan mode akses matriks (row: 1, column: 2): ");
+    scanf("%d", %mode);
+    
     // Membuat matriks
     float matriks1[size][size], matriks2[size][size], matriks3[size][size];
     
     // Mengisi matriks
-    isiMatriks(matriks1);
-    isiMatriks(matriks2);
-    isiMatriks(matriks3);
+    isiMatriks(size, matriks1);
+    isiMatriks(size, matriks2);
+    isiMatriks(size, matriks3);
     
     // Melakukan perkalian
-    kaliMatriks1(matriks1, matriks2, matriks3);
+    kaliBiasa(mode, size, matriks1, matriks2, matriks3);
     
     // Menampilkan hasil perkalian
     for(i=0; i<size; ++i){
