@@ -16,6 +16,21 @@
 
 void isiMatriks(int size, float* matriks){
     // Deskripsi: mengisi matriks dengan nilai fungsi rand
+  srand(time(NULL));
+   
+   for (int i=0; i<size; i++){
+       for (int j=0; j<size; j++){
+           matriks[i][j] = rand() %100;
+       }
+   }
+   
+   printf("Generated matrix: \n");
+   for (int i=0; i<size; i++){
+       for (int j=0; j<size; j++){
+           printf("%d ", matriks[i][j]);
+       }
+       printf("\n");
+   }
 }
 
 void kaliBiasa(int mode, int size, float* matriks1, float* matriks2, float* matriks3){
