@@ -16,7 +16,7 @@
 
 void isiMatriks(int size, float* matriks){
     // Deskripsi: mengisi matriks dengan nilai fungsi rand
-  srand(time(NULL));
+   srand(time(NULL));
    
    for (int i=0; i<size; i++){
        for (int j=0; j<size; j++){
