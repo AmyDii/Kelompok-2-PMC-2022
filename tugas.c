@@ -7,20 +7,50 @@
                     Michelle Angelina (18320007)
                     Shadrina Syahla Vidyana (18320031)
 *Nama File        : tugas.c
-*Deskripsi        : Program perkalian matriks
+*Deskripsi        : Program perkalian dua matriks.
 */
-
-
-//tada
-//Buatlah sebuah kelompok yg beranggotakan dari 3 orang, lalu buat program perkalian matrik untuk ukuran 10x10, 100x100, 1000x1000, 
-//10000x10000, lakukan perkalian dgn beberapa algoritma
 
 // Kamus
 #include <stdio.h>
 #include <stdlib.h>
 
-// Program
+void isiMatriks(float* matriks){
+    // Deskripsi: mengisi matriks dengan nilai fungsi rand
+}
+
+void kaliMatriks1(float* matriks1, float* matriks2, float* matriks3){
+    // Deskripsi: perkalian matrik1 dengan matriks2 menjadi matriks3
+    //            dengan algoritma ...
+}
+
+// Program Utama
 int main{
+    int size, i, j;
+    
+    // Memilih besar matriks
+    printf("Masukan ukuran matriks persegi (10, 100, 1000, atau 10000): \n");
+    scanf("%d", %size);
+    
+    // Memilih algoritma
+    
+    // Membuat matriks
+    float matriks1[size][size], matriks2[size][size], matriks3[size][size];
+    
+    // Mengisi matriks
+    isiMatriks(matriks1);
+    isiMatriks(matriks2);
+    isiMatriks(matriks3);
+    
+    // Melakukan perkalian
+    kaliMatriks1(matriks1, matriks2, matriks3);
+    
+    // Menampilkan hasil perkalian
+    for(i=0; i<size; ++i){
+        for(j=0; j<size; ++j){
+            printf("%f "; matriks3[i][j]);
+        }
+        printf("\n");
+    }
     
     return 0;
 }
