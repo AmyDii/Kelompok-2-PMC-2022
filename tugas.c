@@ -7,67 +7,96 @@
                     Michelle Angelina (18320007)
                     Shadrina Syahla Vidyana (18320031)
 *Nama File        : tugas.c
-*Deskripsi        : Program perkalian dua matriks.
+*Deskripsi        : Program perkalian dua matriks persegi yang sama.
 */
 
 // Kamus
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 
-void isiMatriks(int size, float* matriks){
+void isiMatriks(int size, int* matriks){
     // Deskripsi: mengisi matriks dengan nilai fungsi rand
-   srand(time(NULL));
-   
-   for (int i=0; i<size; i++){
+    
+    // Memilih seed fungsi rand
+    srand(1);
+    
+    // Mengisi tiap elemen matriks dengan fungsi random
+    for (int i=0; i<size; i++){
        for (int j=0; j<size; j++){
-           matriks[i][j] = rand() %100;
+           matriks[i*size+j] = rand() % 100;
        }
-   }
-   
-   printf("Generated matrix: \n");
-   for (int i=0; i<size; i++){
-       for (int j=0; j<size; j++){
-           printf("%d ", matriks[i][j]);
-       }
-       printf("\n");
-   }
+    }
+    
+    return;
 }
 
-void kaliBiasa(int mode, int size, float* matriks1, float* matriks2, float* matriks3){
-    // Deskripsi: perkalian matrik1 dengan matriks2 menjadi matriks3
-    //            dengan algoritma ...
+void kaliBiasa(int mode, int size, int* matriks1, int* matriks2){
+    // Deskripsi: perkalian matrik1 dengan matriks1 menjadi matriks2
+    //            dengan algoritma perkalian tiap elemen
+    int i, j;
+    
+    // Mengakses kolom kemudian baris
+    if(mode==1){
+        for(i=0; i<size; ++i){
+            for(j=0; j<size; ++j){
+                // Mengalikan tiap elemen pada lokasi yang sama
+                matriks2[i*size+j] = matriks1[i*size+j] * matriks1[i*size+j];
+            }
+        }
+    // Mengakses baris kemudian kolom
+    } else if(mode==2){
+        for(j=0; j<size; ++j){
+            for(i=0; i<size; ++i){
+                // Mengalikan tiap elemen pada lokasi yang sama
+                matriks2[i*size+j] = matriks1[i*size+j] * matriks1[i*size+j];
+            }
+        }
+    }
+    
+    return;
 }
 
 // Program Utama
-int main{
-    int size, mode, i, j;
+int main() {
+    int size, algo, mode, i, j;
     
     // Memilih besar matriks
-    printf("Masukan ukuran matriks persegi (10, 100, 1000, atau 10000): \n");
-    scanf("%d", %size);
+    printf("Masukan ukuran matriks persegi (10, 100, 1000, atau 10000): ");
+    scanf("%d", &size);
     
     // Memilih algoritma
+    printf("Pilihan Algoritma:\n");
+    printf("1. Perkalian tiap elemen\n");
+    printf("Masukan nomor algoritma yang diinginkan: ");
+    scanf("%d", &algo);
     
     // Memilih mode akses
-    printf("Masukan mode akses matriks (row: 1, column: 2): ");
-    scanf("%d", %mode);
+    printf("Masukan mode akses matriks (baris: 1, kolom: 2): ");
+    scanf("%d", &mode);
     
     // Membuat matriks
-    float matriks1[size][size], matriks2[size][size], matriks3[size][size];
+    int matriks1[size * size], matriks2[size * size];
     
     // Mengisi matriks
     isiMatriks(size, matriks1);
-    isiMatriks(size, matriks2);
-    isiMatriks(size, matriks3);
     
     // Melakukan perkalian
-    kaliBiasa(mode, size, matriks1, matriks2, matriks3);
+    kaliBiasa(mode, size, matriks1, matriks2);
     
-    // Menampilkan hasil perkalian
+    // Menampilkan matriks awal
+    printf("Matriks Asli\n");
     for(i=0; i<size; ++i){
         for(j=0; j<size; ++j){
-            printf("%f "; matriks3[i][j]);
+            printf("%d\t", matriks1[i*size+j]);
+        }
+        printf("\n");
+    }
+    
+    // Menampilkan hasil perkalian
+    printf("Matriks Hasil Perkalian\n");
+    for(i=0; i<size; ++i){
+        for(j=0; j<size; ++j){
+            printf("%d\t", matriks2[i*size+j]);
         }
         printf("\n");
     }
