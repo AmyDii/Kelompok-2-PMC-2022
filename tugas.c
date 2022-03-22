@@ -14,11 +14,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void isiMatriks(float* matriks){
+void isiMatriks(int size, float* matriks){
     // Deskripsi: mengisi matriks dengan nilai fungsi rand
 }
 
-void kaliMatriks1(float* matriks1, float* matriks2, float* matriks3){
+void kaliMatriks1(int size, float* matriks1, float* matriks2, float* matriks3){
     // Deskripsi: perkalian matrik1 dengan matriks2 menjadi matriks3
     //            dengan algoritma ...
 }
