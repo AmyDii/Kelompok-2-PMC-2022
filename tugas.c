@@ -15,7 +15,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-void isiMatriks(int size, int* matriks){
+void isiMatriks(unsigned int size, unsigned int* matriks){
     // Deskripsi: mengisi matriks dengan nilai fungsi rand
     
     // Memilih seed fungsi rand
@@ -31,7 +31,7 @@ void isiMatriks(int size, int* matriks){
     return;
 }
 
-void kaliBiasa(int mode, int size, int* matriks1, int* matriks2){
+void kaliBiasa(int mode, int size, unsigned int* matriks1, unsigned int* matriks2){
     // Deskripsi: perkalian matrik1 dengan matriks1 menjadi matriks2
     //            dengan algoritma perkalian tiap elemen
     int i, j, k, sum;
@@ -88,7 +88,7 @@ int main() {
     scanf("%d", &mode);
     
     // Membuat matriks
-    int matriks1[size * size], matriks2[size * size];
+    unsigned int matriks1[size * size], matriks2[size * size];
     
     // Mengisi matriks
     isiMatriks(size, matriks1);
@@ -108,7 +108,7 @@ int main() {
     printf("Matriks Asli\n");
     for(i=0; i<size; ++i){
         for(j=0; j<size; ++j){
-            printf("%d\t", matriks1[i*size+j]);
+            printf("%u\t", matriks1[i*size+j]);
         }
         printf("\n");
     }
@@ -117,7 +117,7 @@ int main() {
     printf("Matriks Hasil Perkalian\n");
     for(i=0; i<size; ++i){
         for(j=0; j<size; ++j){
-            printf("%d\t", matriks2[i*size+j]);
+            printf("%u\t", matriks2[i*size+j]);
         }
         printf("\n");
     }
