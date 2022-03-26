@@ -33,22 +33,30 @@ void isiMatriks(int size, int* matriks){
 void kaliBiasa(int mode, int size, int* matriks1, int* matriks2){
     // Deskripsi: perkalian matrik1 dengan matriks1 menjadi matriks2
     //            dengan algoritma perkalian tiap elemen
-    int i, j;
+    int i, j, k, sum;
     
     // Mengakses kolom kemudian baris
     if(mode==1){
         for(i=0; i<size; ++i){
             for(j=0; j<size; ++j){
-                // Mengalikan tiap elemen pada lokasi yang sama
-                matriks2[i*size+j] = matriks1[i*size+j] * matriks1[i*size+j];
+                sum = 0;
+                for(k=0; k<size; ++k){
+                    // Mengalikan tiap elemen pada lokasi yang sama
+                    sum += matriks1[i*size+k] * matriks1[j+size*k];
+                }
+            matriks2[i*size+j] = sum;
             }
         }
     // Mengakses baris kemudian kolom
     } else if(mode==2){
         for(j=0; j<size; ++j){
             for(i=0; i<size; ++i){
-                // Mengalikan tiap elemen pada lokasi yang sama
-                matriks2[i*size+j] = matriks1[i*size+j] * matriks1[i*size+j];
+                sum = 0;
+                for(k=0; k<size; ++k){
+                    // Mengalikan tiap elemen pada lokasi yang sama
+                    sum += matriks1[j+size*k] * matriks1[i*size+k];
+                }
+            matriks2[j+size*i] = sum;
             }
         }
     }
