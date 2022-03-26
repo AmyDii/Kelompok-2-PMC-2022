@@ -34,7 +34,8 @@ void isiMatriks(unsigned int size, unsigned int* matriks){
 void kaliBiasa(int mode, int size, unsigned int* matriks1, unsigned int* matriks2){
     // Deskripsi: perkalian matrik1 dengan matriks1 menjadi matriks2
     //            dengan algoritma perkalian tiap elemen
-    int i, j, k, sum;
+    int i, j, k;
+    unsigned int sum;
     
     // Mengakses kolom kemudian baris
     if(mode==1){
