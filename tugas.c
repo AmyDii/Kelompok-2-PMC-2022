@@ -31,15 +31,13 @@ void isiMatriks(int size, int* matriks){
     return;
 }
 
-void kaliBiasa(int mode, int size, int* matriks1, int* matriks2, double* duration){
+void kaliBiasa(int mode, int size, int* matriks1, int* matriks2){
     // Deskripsi: perkalian matrik1 dengan matriks1 menjadi matriks2
     //            dengan algoritma perkalian tiap elemen
     int i, j, k, sum;
-    clock_t t;
     
     // Mengakses kolom kemudian baris
     if(mode==1){
-        t = clock();
         for(i=0; i<size; ++i){
             for(j=0; j<size; ++j){
                 sum = 0;
@@ -50,12 +48,10 @@ void kaliBiasa(int mode, int size, int* matriks1, int* matriks2, double* duratio
             matriks2[i*size+j] = sum;
             }
         }
-        t = clock() - t;
-        *duration = ((double)t)/CLOCKS_PER_SEC;
+        
         
     // Mengakses baris kemudian kolom
     } else if(mode==2){
-        t = clock();
         for(j=0; j<size; ++j){
             for(i=0; i<size; ++i){
                 sum = 0;
@@ -66,8 +62,6 @@ void kaliBiasa(int mode, int size, int* matriks1, int* matriks2, double* duratio
             matriks2[j+size*i] = sum;
             }
         }
-        t = clock() - t;
-        *duration = ((double)t)/CLOCKS_PER_SEC;
     }
     
     return;
@@ -77,6 +71,7 @@ void kaliBiasa(int mode, int size, int* matriks1, int* matriks2, double* duratio
 int main() {
     int size, algo, mode, i, j;
     double exec_time = 0.0;
+    clock_t t;
     
     // Memilih besar matriks
     printf("Masukan ukuran matriks persegi (10, 100, 1000, atau 10000): ");
@@ -98,8 +93,16 @@ int main() {
     // Mengisi matriks
     isiMatriks(size, matriks1);
     
+    
     // Melakukan perkalian
-    kaliBiasa(mode, size, matriks1, matriks2, &exec_time);
+    if(algo==1){
+        // Memulai pengukuran waktu perhitungan
+        t = clock();
+        kaliBiasa(mode, size, matriks1, matriks2);
+    }
+    // Mengakhiri pengukuran waktu perhitungan
+    t = clock() - t;
+    exec_time = ((double)t)/CLOCKS_PER_SEC;
     
     // Menampilkan matriks awal
     printf("Matriks Asli\n");
