@@ -88,7 +88,9 @@ int main() {
     scanf("%d", &mode);
     
     // Membuat matriks
-    unsigned int matriks1[size * size], matriks2[size * size];
+    //unsigned int matriks1[size * size], matriks2[size * size];
+    unsigned int *matriks1 = (unsigned int*)malloc(size*size*sizeof(unsigned int));
+    unsigned int *matriks2 = (unsigned int*)malloc(size*size*sizeof(unsigned int));
     
     // Mengisi matriks
     isiMatriks(size, matriks1);
